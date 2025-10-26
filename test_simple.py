@@ -4,7 +4,7 @@ from selene import browser, be, have, command
 from pages.practice_form_page import PracticeFormPage
 
 
-def test_simple(browser_management):
+def test_simple():
     page = PracticeFormPage()
 
     with allure.step("Open practice form"):
