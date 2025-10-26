@@ -15,13 +15,12 @@ def load_env():
 
 @pytest.fixture(scope='function', autouse=True)
 def browser_management():
-    # Настройки Selene
     browser.config.base_url = 'https://demoqa.com'
     browser.config.window_width = 1920
     browser.config.window_height = 1080
     browser.config.timeout = 10.0
 
-    # Настройки драйвера
+
     options = Options()
     options.set_capability("browserName", "chrome")
     options.set_capability("browserVersion", "128.0")
@@ -30,11 +29,11 @@ def browser_management():
         "enableVideo": True
     })
 
-    # Получаем логин и пароль
+
     login = os.getenv('LOGIN')
     password = os.getenv('PASSWORD')
 
-    # Создаем удаленный драйвер
+
     driver = webdriver.Remote(
         command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",
         options=options
@@ -44,7 +43,7 @@ def browser_management():
 
     yield
 
-    # Attach в конце теста
+
     attach.add_html(browser)
     attach.add_screenshot(browser)
     attach.add_logs(browser)
