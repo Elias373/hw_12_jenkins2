@@ -1,9 +1,0 @@
-
-    Browser console logs are no longer available in Selenium 4+ with Chrome.
-    This is a known limitation due to changes in Chrome DevTools Protocol.
-
-    Alternatives:
-    - Use browser developer tools manually
-    - Implement custom JavaScript logging
-    - Use performance logs instead
-    
